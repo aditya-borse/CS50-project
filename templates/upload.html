@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upload
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1 class="mt-5">Upload .mbox File</h1>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-lable">Select .mbox file</label>
+            <input class="form-control" type="file" id="file" name="file" accept=".mbox" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+{% endblock %}

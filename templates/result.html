@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h1>Transaction Summary</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Transaction</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.date }}</td>
+                <td>{{ result.time }}</td>
+                <td>{{ result.subject }}</td>
+                <td>₹ {{ result.amount }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total money spent:</strong></td>
+                <td><strong>₹ {{ total_spent }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        <a href="/download" class="btn btn-primary">Download Transaction Summary</a>
+    </div>
+
+    <div class="mt-3">
+        <a href="/upload" class="btn btn-primary">Upload Another file</a>
+    </div>
+</div>
+{% endblock %}
